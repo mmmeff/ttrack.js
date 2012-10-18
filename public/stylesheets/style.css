@@ -1,8 +1,41 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body 
+{
+	margin:0px;
+	background-color:#DDD;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;	
 }
 
-a {
-  color: #00B7FF;
+a 
+{
+	color: #00B7FF;
+}
+
+h1 
+{
+	margin:25px;
+	font-size:60px;
+}
+
+workarea
+{
+	
+	overflow:scroll-x;
+	background-color:#000;
+	max-height:510px;
+	width:parent;
+	
+	
+}
+
+column
+{
+	
+	float:left;
+	padding:5px;
+	margin-left:10px;
+	height:500px;
+	width:250px;
+	background-color:#FFF;
+	
+	position:relative;
 }
