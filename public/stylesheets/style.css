@@ -1,41 +1,154 @@
 body 
 {
-	margin:0px;
+	
 	background-color:#DDD;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;	
+	height:100%;
+	width:100%;
+	overflow:hidden;
 }
 
-a 
+@font-face
 {
-	color: #00B7FF;
+	font-family: digitalis;
+	src: url('/fonts/digitalis.ttf');
+}
+
+@font-face
+{
+	font-family:digital7;
+	src: url('/fonts/digital7.ttf');
+}
+
+@font-face
+{
+	font-family:'digital7mono';
+	src: url('/fonts/digital7mono.ttf');
+}
+
+#header 
+{
+	padding-top:30px;
+	height:25%;
+	margin-top:-25px;
+	background-color:#FFF;
+	margin-bottom:20px;
+	box-shadow:0px 5px 8px #999;
+}
+
+#footer
+{
+	background-color:#AAA;
+	color:#000;
+	
 }
 
 h1 
 {
 	margin:25px;
-	font-size:60px;
+	text-align:center;
+	font-size:130px;
+	font-family: 'digitalis';
+	color:#777;
 }
 
 workarea
 {
+	height:75%;
+}
+
+.row
+{
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	box-shadow: 0px 2px 5px #000;
+	clear:both;
+	padding:5px;
+	width:90%;
+	height:50px;
+	background-color:#FFF;
+	position:relative;
+	overflow:hidden;
+}
+
+.row:hover
+{
+	background-color:#EFEFEF;
+}
+
+.row.add
+{
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	width:75px;
+	height:25px;
+	background-color:#FFF;
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.row.add:hover
+{
+	background-color:Lime;
+}
+
+p.time
+{
+	position:relative;
+	float:left;
+	font-family:'digital7mono';
+	font-size:50px;
+	width:25%;
+	background-color:black;
+	color:lime;
 	
-	overflow:scroll-x;
-	background-color:#000;
-	max-height:510px;
-	width:parent;
+	margin-left:-5px;
+	padding-left:15px;
+	margin-right:15px;
+	padding-right:15px;
+	height:60px;
 	
+	margin-top:-5px;
+	padding-top:5px;
+	margin-bottom:0px;
+	
+	width:121px;
+}
+
+a.del
+{
+	float:right;
+	position:relative;
+	top:12px;
+	width:5%;
 	
 }
 
-column
+.textfield
 {
-	
-	float:left;
-	padding:5px;
-	margin-left:10px;
-	height:500px;
-	width:250px;
-	background-color:#FFF;
-	
+	margin-left:auto;
+	margin-right:auto;
 	position:relative;
+	top:12px;
+	height:25px;
+
 }
+
+.textfield input
+{
+	width:60%;
+}
+
+

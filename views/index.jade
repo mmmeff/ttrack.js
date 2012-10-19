@@ -1,11 +1,18 @@
 extends layout
 
 block content
-	h1= title
-	workarea 
-		column a
-		column b
-		column c
-		column d
-		column e
-		column f
+	#wrap
+		#main
+			#header
+				h1= title
+			workarea
+				.row
+					p.time 00:00
+					
+					a.del(href="#")
+						img(src="/images/del.png")
+				
+				.row.add +
+					
+				
+	#footer
