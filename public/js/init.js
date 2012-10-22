@@ -38,6 +38,11 @@ function updateRows()
 			removeRow(index);
 		});
 		
+		$('a.del'.hover( function()
+		{
+			$(this).remove();
+		}
+		
 		$('p.time').click( function()
 		{
 			toggle(index);
