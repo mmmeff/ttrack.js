@@ -1,50 +1,58 @@
 $(function() 
 {
-	$('h1').hide().fadeIn(1500);
+	$('h1').hide().fadeIn(200);
+	$('.adder').hide().fadeIn(200);
+	$('.adder').click( function(){
+		addRow();
+	});
+	addRow();
 	updateRows();
 });
 
 //globals
-var rows = new Array();
+var timers = new Array();
 
 //start or stop a row
-function toggle(index)
+function toggleTimer(index)
 {
-	alert("clicked" + index);
+	//timers[index].stopwatch('toggle');
 }
 
 //add a timer row
 function addRow()
 {
-	rows.push(0);
+	//rows.push('stuff');
+	//timers.push($('').stopwatch('start'));
+	$('#workarea').append(
+		'<div class="row"><p class="time">00:00<a href="#"><span class="stretchout"></span></a></p><a href="#" class="del"><img src="/images/del.png"></a></div>'
+	);
+	$('.row:last').hide().fadeIn(200);
+	updateRows();
 }
 
 //delete a timer row
-function removeRow(index)
+function removeRow(element)
 {
-	$('.row').each( function(index) {
-		$(this).fadeOut(1000).remove();
+	$(element).fadeOut(200, function(){
+		$(this).remove();
 	});
+	updateRows();
 }
 
-
-//Set each row's button's
+//configure each row's button's
 function updateRows()
 {
-	$('.row').each( function(index, element){
-		$('a.del').click( function() 
-		{
-			alert('trying');
-			removeRow(index);
-		});
-		
-		$('a.del'.hover( function()
-		{
-			$(this).remove();
-		}
-		
-		$('p.time').click( function()
-		{
-			toggle(index);
-		});
+	$('.del').on("click", function(){
+		removeRow($(this).parent());
 	});
+	
+	$('p.time').each( function(index, element) {
+		$(this).on("click", function(){
+			toggleTimer(index);
+		});
+		// $(this).on('tick.stopwatch', function(e, elapsed){
+			// $(this).text(timers[index].getTime());
+		// });
+	});
+	
+}

@@ -33,26 +33,28 @@ body
 	margin-top:-25px;
 	background-color:#FFF;
 	margin-bottom:20px;
-	box-shadow:0px 5px 8px #999;
+	box-shadow:0px 4px 8px #BBB;
 }
 
 #footer
 {
-	background-color:#AAA;
+	box-shadow:0px -4px 8px #BBB;
+	background-color:#FFF;
 	color:#000;
 	
 }
 
 h1 
 {
-	margin:25px;
+	margin-top:15px;
+	margin-bottom:15px;
 	text-align:center;
 	font-size:130px;
 	font-family: 'digitalis';
 	color:#777;
 }
 
-workarea
+#workarea
 {
 	height:75%;
 }
@@ -77,35 +79,37 @@ workarea
 	position:relative;
 	overflow:hidden;
 	z-index:1;
-	
 }
 
 .row:hover
 {
 	background-color:#EFEFEF;
+	cursor:text;
 }
 
-.row.timer
+.adder
 {
-
-}
-
-.row.add
-{
+	box-shadow:0px 2px 5px #999;
+	background-color:#FFF;
+	border-radius:9px;
+	clear:both;
+	display:block;
+	font-size:14px;
+	height:20px;
+	margin-bottom:0px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	padding:5px;
 	position:relative;
 	top:-15px;
-	width:250px;
-	height:20px;
-	background-color:#FFF;
-	
-	-webkit-border-radius: 9px;
-	-moz-border-radius: 9px;
-	border-radius: 9px;
-	
+	width:100px;
 	z-index:0;
 }
 
-.row.add:hover
+.adder:hover
 {
 	background-color:Lime;
 }
@@ -118,7 +122,10 @@ workarea
 	top:0;
 	left:0;
 	z-index:1;
+	padding-top:8px;
 	background-image:url('/images/Empty.gif');
+	font-size:20px;
+	color:#888;
 }
 
 p.time
@@ -129,6 +136,7 @@ p.time
 	font-size:50px;
 	background-color:black;
 	color:lime;
+	box-shadow:5px 0px 18px #BBB;
 	
 	margin-left:-5px;
 	padding-left:15px;
