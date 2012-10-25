@@ -10,24 +10,49 @@ $(function()
 });
 
 //globals
-var timers = new Array();
 
-//start or stop a row
 function toggleTimer(index)
 {
-	//timers[index].stopwatch('toggle');
+	stopAllTimers();
+	startTimer(index);
+}
+
+function stopAllTimers()
+{
+
+}
+
+function startTimer(index)
+{
+
 }
 
 //add a timer row
 function addRow()
 {
-	//rows.push('stuff');
-	//timers.push($('').stopwatch('start'));
 	$('#workarea').append(
-		'<div class="row"><p class="time">00:00<a href="#"><span class="stretchout"></span></a></p><a href="#" class="del"><img src="/images/del.png"></a></div>'
+		'<div class="row"><p class="time">00:00<a href="#">' +
+		'<span class="stretchout"></span></a></p>' +
+		'<input type="text" class="label" placeholder="..." />' +
+		'<a href="#" class="del"><img src="/images/del.png"></a></div>'
 	);
-	$('.row:last').hide().fadeIn(200);
-	updateRows();
+	
+	//set up the element's controls
+	var element = $('.row:last').hide().fadeIn(200, function(){
+		console.log('' + $('.row').length + ' rows');
+		updateRows();
+	});
+	element.children('.del').on("click", function(){
+		removeRow(element);
+	});
+	element.children('p.time').toggle(
+		function(){
+			console.log("timer on");
+		},
+		function(){
+			console.log("timer off");
+		}
+	);
 }
 
 //delete a timer row
@@ -35,24 +60,22 @@ function removeRow(element)
 {
 	$(element).fadeOut(200, function(){
 		$(this).remove();
+		console.log('' + $('.row').length + ' rows');
+		updateRows();
 	});
-	updateRows();
+	
+	
 }
 
 //configure each row's button's
 function updateRows()
 {
-	$('.del').on("click", function(){
-		removeRow($(this).parent());
-	});
-	
-	$('p.time').each( function(index, element) {
-		$(this).on("click", function(){
-			toggleTimer(index);
-		});
-		// $(this).on('tick.stopwatch', function(e, elapsed){
-			// $(this).text(timers[index].getTime());
-		// });
-	});
-	
+	if ($('.row').length < 1)
+	{
+		$('.adder').animate({width:"75px",height:"75px", fontsize:"40px"},200).addClass('solo');;
+	} else
+	{
+		$('.adder').animate({width:"100px",height:"20px"},200).removeClass('solo');
+	}
 }
+
