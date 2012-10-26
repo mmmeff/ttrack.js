@@ -1,11 +1,9 @@
 body 
 {
-	
 	background-color:#DDD;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;	
 	height:100%;
 	width:100%;
-	
 }
 
 @font-face
@@ -28,11 +26,14 @@ body
 
 #header 
 {
-	padding-top:30px;
-	height:25%;
-	margin-top:-25px;
+	height:100px;
+	text-align:center;
+	font-size:130px;
+	font-family: 'digitalis';
+	color:#777;
 	background-color:#FFF;
 	margin-bottom:20px;
+	padding-top:30px;
 	box-shadow:0px 4px 8px #BBB;
 }
 
@@ -44,15 +45,6 @@ body
 	
 }
 
-h1 
-{
-	margin-top:15px;
-	margin-bottom:15px;
-	text-align:center;
-	font-size:130px;
-	font-family: 'digitalis';
-	color:#777;
-}
 
 #workarea
 {
@@ -79,6 +71,11 @@ h1
 {
 	background-color:#EFEFEF;
 	cursor:text;
+}
+
+.row.locked
+{
+	background-color:#000;
 }
 
 .adder
@@ -164,6 +161,14 @@ p.time
 	height:60px;
 }
 
+a.lock
+{
+	float:right;
+	position:relative;
+	top:12px;
+	width:25px;
+}
+
 a.del
 {
 	float:right;
@@ -176,7 +181,7 @@ a.del
 input.label
 {
 	border:none;
-	width:67.8%;
+	width:62%;
 	background-color:transparent;
 	height:50px;
 	position:absolute;
@@ -197,6 +202,22 @@ input:-ms-input-placeholder {
 
 *:focus {
 	outline:none;
+}
+
+.cat
+{
+	width:500px;
+	height:auto;
+	position:absolute;
+	top:0;
+	left:25%;
+	z-index:1000;
+}
+
+.hidden
+{
+	
+	display:none;
 }
 
 
