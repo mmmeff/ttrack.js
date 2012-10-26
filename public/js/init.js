@@ -1,56 +1,55 @@
 $(function() 
 {
 	$('h1').hide().fadeIn(200);
-	$('.adder').hide().fadeIn(200);
+	$('.adder').hide().fadeIn(200, function(){
+		addRow();
+		updateRows();
+	});
 	$('.adder').click( function(){
 		addRow();
 	});
-	addRow();
-	updateRows();
+	//addRow();
+	//updateRows();
 });
 
-//globals
-
-function toggleTimer(index)
-{
-	stopAllTimers();
-	startTimer(index);
-}
-
-function stopAllTimers()
-{
-
-}
-
-function startTimer(index)
-{
-
-}
+var times = new Array();
+var timers = new Array();
 
 //add a timer row
 function addRow()
 {
+
+	times.push(0);
 	$('#workarea').append(
-		'<div class="row"><p class="time">00:00<a href="#">' +
-		'<span class="stretchout"></span></a></p>' +
-		'<input type="text" class="label" placeholder="..." />' +
-		'<a href="#" class="del"><img src="/images/del.png"></a></div>'
+		'<div class="row">' + 
+			'<p class="time">00:00<a href="#">' +
+			'<span class="stretchout"></span></a></p>' +
+			'<input type="text" class="label" placeholder="..." />' +
+			'<a href="#" class="del"><img src="/images/del.png"></a>' + 
+		'</div>'
 	);
 	
 	//set up the element's controls
-	var element = $('.row:last').hide().fadeIn(200, function(){
-		console.log('' + $('.row').length + ' rows');
+	var element = $('.row:last').hide().fadeIn(500, function(){
 		updateRows();
 	});
+	var i = times.length-1;
+	
 	element.children('.del').on("click", function(){
 		removeRow(element);
 	});
+	
 	element.children('p.time').toggle(
-		function(){
-			console.log("timer on");
+		function(){	
+			timers[i] = setInterval(function(){
+				times[i] = times[i]+1;
+				console.log("update: [" + times + "]");
+				element.children('p.time').text(jintervals(times[i], "{MM}:{ss}"));
+				element.children('p.time').append('<a href="#"><span class="stretchout"></span></a>');
+			},1000);
 		},
 		function(){
-			console.log("timer off");
+			clearInterval(timers[i]);
 		}
 	);
 }
@@ -58,13 +57,18 @@ function addRow()
 //delete a timer row
 function removeRow(element)
 {
+	var i = $('.row').index(element);
+	
+	clearInterval(timers[i]);
+	timers[i] = null;
+	times[i] = null;
+	//times.splice(i, 1);
+	//timers.splice(i,1);
+	
 	$(element).fadeOut(200, function(){
 		$(this).remove();
-		console.log('' + $('.row').length + ' rows');
 		updateRows();
 	});
-	
-	
 }
 
 //configure each row's button's
