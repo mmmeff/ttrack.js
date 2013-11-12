@@ -147,6 +147,7 @@ p.time
 	box-shadow:5px 0px 18px #BBB;
 	cursor:pointer;
 	
+	line-height: 55px;
 	position:relative;
 	float:left;
 	margin-left:-5px;
@@ -185,7 +186,7 @@ input.label
 	background-color:transparent;
 	height:50px;
 	position:absolute;
-	top:10px;
+	top:6px;
 	font-size:40px;
 	color:#666;
 }
